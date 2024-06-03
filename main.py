@@ -40,6 +40,7 @@ if __name__ == "__main__":
     valores_para_calcular = str(texto_em_tela)
 
     if len(valores_para_calcular) >= 4:
+
       texto_em_tela = eval(valores_para_calcular)
       return valor_atual.set(texto_em_tela)
 
@@ -50,8 +51,8 @@ if __name__ == "__main__":
       a, b = map(float, valores_para_calcular.split('*'))
       texto_em_tela = multiplicacao(a, b)
     elif "-" in valores_para_calcular:
-      valor1 = int(valores_para_calcular[0])
-      valor2 = int(valores_para_calcular[2])
+      valor1 = int(valores_para_calcular.split("-")[0])
+      valor2 = int(valores_para_calcular.split("-")[1])
       texto_em_tela = subtracao(valor1, valor2)
     elif "%" in valores_para_calcular:
       valor1 = int(valores_para_calcular[0])
