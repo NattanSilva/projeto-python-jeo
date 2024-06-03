@@ -1,10 +1,10 @@
 from tkinter import *
 from tkinter import ttk
 
-from theme.colors import *
-
 from funcionalidades.multiplicacao import multiplicacao
 from funcionalidades.potenciacao import potenciacao
+from theme.colors import *
+
 # Criem as funcionalidades de soma, subtração, divisão, multiplicação, módulo(resto da divisão), potenciação na pasta de funcionalidades com o nome da funcionalidade no arquivo, EX: soma.py, multiplicacao.py...
 
 if __name__ == "__main__":
@@ -39,17 +39,14 @@ if __name__ == "__main__":
         global texto_em_tela
         valores_para_calcular = str(texto_em_tela)
 
-        try:
-            elif '*' in valores_para_calcular:
-                a, b = map(float, valores_para_calcular.split('*'))
-                resultado = multiplicacao(a, b)
-            elif '**' in valores_para_calcular:
-                a, b = map(float, valores_para_calcular.split('**'))
-                resultado = potenciacao(a, b)
-            else:
-                resultado = "Erro: Operação inválida"
-        except Exception as e:
-            resultado = f"Erro: {e}"
+        if '**' in valores_para_calcular:
+            a, b = map(float, valores_para_calcular.split('**'))
+            resultado = potenciacao(a, b)
+        elif '*' in valores_para_calcular:
+            a, b = map(float, valores_para_calcular.split('*'))
+            resultado = multiplicacao(a, b)
+        else:
+            resultado = "Erro: Operação inválida"
 
         valor_atual.set(str(resultado))
         texto_em_tela = ""
