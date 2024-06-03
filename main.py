@@ -4,6 +4,7 @@ from tkinter import ttk
 from funcionalidades.multiplicacao import multiplicacao
 from funcionalidades.potenciacao import potenciacao
 from funcionalidades.sub import subtracao
+from funcionalidades.porcentagem import porcentagem
 from theme.colors import *
 
 # Criem as funcionalidades de soma, subtração, divisão, multiplicação, módulo(resto da divisão), potenciação na pasta de funcionalidades com o nome da funcionalidade no arquivo, EX: soma.py, multiplicacao.py...
@@ -38,8 +39,9 @@ if __name__ == "__main__":
     # Essa variável é onde esta armazenada a expressão que o usuario digitou para ser calculado
     valores_para_calcular = str(texto_em_tela)
 
-    if len(valores_para_calcular) > 4:
+    if len(valores_para_calcular) >= 4:
       texto_em_tela = eval(valores_para_calcular)
+      return valor_atual.set(texto_em_tela)
 
     if '**' in valores_para_calcular:
       a, b = map(float, valores_para_calcular.split('**'))
@@ -51,7 +53,11 @@ if __name__ == "__main__":
       valor1 = int(valores_para_calcular[0])
       valor2 = int(valores_para_calcular[2])
       texto_em_tela = subtracao(valor1, valor2)
-        
+    elif "%" in valores_para_calcular:
+      valor1 = int(valores_para_calcular[0])
+      valor2 = int(valores_para_calcular[2])
+      texto_em_tela = porcentagem(valor1, valor2)
+    
     valor_atual.set(texto_em_tela)
 
   # Label
