@@ -3,6 +3,8 @@ from tkinter import ttk
 
 from theme.colors import *
 
+from funcionalidades.multiplicacao import multiplicacao
+from funcionalidades.potenciacao import potenciacao
 # Criem as funcionalidades de soma, subtração, divisão, multiplicação, módulo(resto da divisão), potenciação na pasta de funcionalidades com o nome da funcionalidade no arquivo, EX: soma.py, multiplicacao.py...
 
 if __name__ == "__main__":
@@ -33,14 +35,37 @@ if __name__ == "__main__":
   def calcular():
     global texto_em_tela
     # Essa variável é onde esta armazenada a expressão que o usuario digitou para ser calculado
-    valores_para_calcular = str(texto_em_tela)
+  def calcular():
+        global texto_em_tela
+        valores_para_calcular = str(texto_em_tela)
 
-    # implementem as funcionalidades aqui
+        try:
+            # Avalia a expressão matemática usando as funções criadas
+            if '+' in valores_para_calcular:
+                a, b = map(float, valores_para_calcular.split('+'))
+                resultado = soma(a, b)
+            elif '-' in valores_para_calcular:
+                a, b = map(float, valores_para_calcular.split('-'))
+                resultado = subtracao(a, b)
+            elif '*' in valores_para_calcular:
+                a, b = map(float, valores_para_calcular.split('*'))
+                resultado = multiplicacao(a, b)
+            elif '/' in valores_para_calcular:
+                a, b = map(float, valores_para_calcular.split('/'))
+                resultado = divisao(a, b)
+            elif '%' in valores_para_calcular:
+                a, b = map(float, valores_para_calcular.split('%'))
+                resultado = modulo(a, b)
+            elif '**' in valores_para_calcular:
+                a, b = map(float, valores_para_calcular.split('**'))
+                resultado = potenciacao(a, b)
+            else:
+                resultado = "Erro: Operação inválida"
+        except Exception as e:
+            resultado = f"Erro: {e}"
 
-
-
-    # Deixe essa linha do jeitinho que está e sempre no final
-    texto_em_tela = ""
+        valor_atual.set(str(resultado))
+        texto_em_tela = ""
 
   # Label
   valor_atual = StringVar()
