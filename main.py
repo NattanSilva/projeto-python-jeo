@@ -2,6 +2,7 @@ from tkinter import *
 from tkinter import ttk
 
 from funcionalidades.divisao import div
+from funcionalidades import soma
 from funcionalidades.multiplicacao import multiplicacao
 from funcionalidades.potenciacao import potenciacao
 from funcionalidades.sub import subtracao
@@ -61,6 +62,12 @@ if __name__ == "__main__":
       texto_em_tela = porcentagem(valor1, valor2)
     elif "/" in valores_para_calcular:
       texto_em_tela = div(int(valores_para_calcular[0]),int(valores_para_calcular[2]))
+    elif "+" in valores_para_calcular:
+      numeros = []
+      for algarismo in valores_para_calcular:
+        if algarismo.isnumeric():
+          numeros.append(int(algarismo))
+      texto_em_tela = soma(numeros[0],numeros[1])
     
     valor_atual.set(texto_em_tela)
 
