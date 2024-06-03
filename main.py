@@ -35,21 +35,19 @@ if __name__ == "__main__":
   def calcular():
     global texto_em_tela
     # Essa variável é onde esta armazenada a expressão que o usuario digitou para ser calculado
-  def calcular():
-        global texto_em_tela
-        valores_para_calcular = str(texto_em_tela)
+    valores_para_calcular = str(texto_em_tela)
 
-        if '**' in valores_para_calcular:
-            a, b = map(float, valores_para_calcular.split('**'))
-            resultado = potenciacao(a, b)
-        elif '*' in valores_para_calcular:
-            a, b = map(float, valores_para_calcular.split('*'))
-            resultado = multiplicacao(a, b)
-        else:
-            resultado = "Erro: Operação inválida"
+    if len(valores_para_calcular) > 4:
+      texto_em_tela = eval(valores_para_calcular)
 
-        valor_atual.set(str(resultado))
-        texto_em_tela = ""
+    if '**' in valores_para_calcular:
+      a, b = map(float, valores_para_calcular.split('**'))
+      texto_em_tela = potenciacao(a, b)
+    elif '*' in valores_para_calcular:
+      a, b = map(float, valores_para_calcular.split('*'))
+      texto_em_tela = multiplicacao(a, b)
+        
+    valor_atual.set(texto_em_tela)
 
   # Label
   valor_atual = StringVar()
