@@ -40,22 +40,9 @@ if __name__ == "__main__":
         valores_para_calcular = str(texto_em_tela)
 
         try:
-            # Avalia a expressão matemática usando as funções criadas
-            if '+' in valores_para_calcular:
-                a, b = map(float, valores_para_calcular.split('+'))
-                resultado = soma(a, b)
-            elif '-' in valores_para_calcular:
-                a, b = map(float, valores_para_calcular.split('-'))
-                resultado = subtracao(a, b)
             elif '*' in valores_para_calcular:
                 a, b = map(float, valores_para_calcular.split('*'))
                 resultado = multiplicacao(a, b)
-            elif '/' in valores_para_calcular:
-                a, b = map(float, valores_para_calcular.split('/'))
-                resultado = divisao(a, b)
-            elif '%' in valores_para_calcular:
-                a, b = map(float, valores_para_calcular.split('%'))
-                resultado = modulo(a, b)
             elif '**' in valores_para_calcular:
                 a, b = map(float, valores_para_calcular.split('**'))
                 resultado = potenciacao(a, b)
