@@ -1,6 +1,7 @@
 from tkinter import *
 from tkinter import ttk
 
+from funcionalidades.divisao import div
 from funcionalidades.multiplicacao import multiplicacao
 from funcionalidades.potenciacao import potenciacao
 from funcionalidades.sub import subtracao
@@ -58,6 +59,8 @@ if __name__ == "__main__":
       valor1 = int(valores_para_calcular[0])
       valor2 = int(valores_para_calcular[2])
       texto_em_tela = porcentagem(valor1, valor2)
+    elif "/" in valores_para_calcular:
+      texto_em_tela = div(int(valores_para_calcular[0]),int(valores_para_calcular[2]))
     
     valor_atual.set(texto_em_tela)
 
