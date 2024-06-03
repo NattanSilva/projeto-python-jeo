@@ -3,6 +3,7 @@ from tkinter import ttk
 
 from funcionalidades.multiplicacao import multiplicacao
 from funcionalidades.potenciacao import potenciacao
+from funcionalidades.sub import subtracao
 from theme.colors import *
 
 # Criem as funcionalidades de soma, subtração, divisão, multiplicação, módulo(resto da divisão), potenciação na pasta de funcionalidades com o nome da funcionalidade no arquivo, EX: soma.py, multiplicacao.py...
@@ -46,6 +47,10 @@ if __name__ == "__main__":
     elif '*' in valores_para_calcular:
       a, b = map(float, valores_para_calcular.split('*'))
       texto_em_tela = multiplicacao(a, b)
+    elif "-" in valores_para_calcular:
+      valor1 = int(valores_para_calcular[0])
+      valor2 = int(valores_para_calcular[2])
+      texto_em_tela = subtracao(valor1, valor2)
         
     valor_atual.set(texto_em_tela)
 
